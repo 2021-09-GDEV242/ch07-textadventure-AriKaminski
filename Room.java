@@ -12,25 +12,31 @@ import java.util.Iterator;
  * connected to other rooms via exits.  For each existing exit, the room 
  * stores a reference to the neighboring room.
  * 
- * @author  Michael Kölling and David J. Barnes
- * @version 2016.02.29
+ * @author  Kaminski
+ * @version Nov 1 2021
  */
 
 public class Room 
 {
     private String description;
     private HashMap<String, Room> exits;        // stores exits of this room.
+    private Item item;                          //create an item
+    
+    
 
     /**
      * Create a room described "description". Initially, it has
      * no exits. "description" is something like "a kitchen" or
      * "an open court yard".
      * @param description The room's description.
+     * @param Item description
+     * @param Item weight
      */
-    public Room(String description) 
+    public Room(String description, String itemDescription, String itemWeight) 
     {
         this.description = description;
         exits = new HashMap<>();
+        this.item = new Item(itemDescription, itemWeight);
     }
 
     /**
@@ -60,7 +66,7 @@ public class Room
      */
     public String getLongDescription()
     {
-        return "You are " + description + ".\n" + getExitString();
+        return "You are " + description + ".\n" + getExitString() + item.getItemInfo();
     }
 
     /**
