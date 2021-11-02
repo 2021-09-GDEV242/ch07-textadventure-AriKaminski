@@ -1,0 +1,8 @@
+Ari Kamiski Text Adventure project
+
+For this project I added...
+
+15 rooms, modified name rooms and exits
+look() function
+eat() function
+added items to rooms and room descriptions
